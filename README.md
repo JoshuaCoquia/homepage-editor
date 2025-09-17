@@ -58,8 +58,9 @@ Feel free to check [our documentation](https://docs.astro.build) or jump into ou
 [Typescript]: https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white
 [Typescript-url]: https://typescriptlang.org
 
-//Contributors:
-//Kaushal Katakam
-//Sean Lee
-//Aadhithian Ganesan
->>>>>>> 8113beb050e80788309017aeb356348298e1a617
+## Contributors:
+
+Joshua Coquia  
+Kaushal Katakam  
+Sean Lee  
+Aadhithian Ganesan  
