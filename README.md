@@ -43,8 +43,13 @@ All commands are run from the root of the project, from a terminal:
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
 
+## Contributors:
 
-=======
+Joshua Coquia  
+Kaushal Katakam  
+Sean Lee  
+Aadhithian Ganesan  
+
 [Figma]: https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white
 [Figma-url]: https://figma.com
 [Firebase]: https://img.shields.io/badge/firebase-%23039BE5.svg?style=for-the-badge&logo=firebase
@@ -57,10 +62,3 @@ Feel free to check [our documentation](https://docs.astro.build) or jump into ou
 [Tailwind-url]: https://tailwindcss.com/
 [Typescript]: https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white
 [Typescript-url]: https://typescriptlang.org
-
-## Contributors:
-
-Joshua Coquia  
-Kaushal Katakam  
-Sean Lee  
-Aadhithian Ganesan  
