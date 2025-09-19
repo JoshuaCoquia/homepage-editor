@@ -3,6 +3,7 @@
 ## Built With
 
 [![Figma][Figma]][Figma-url]
+[![Astro][Astro]][Astro-url]
 [![React][React.js]][React-url]
 [![Tailwind][Tailwindcss]][Tailwind-url]
 [![Typescript][Typescript]][Typescript-url]
@@ -51,6 +52,8 @@ Kaushal Katakam
 Sean Lee  
 Aadhithian Ganesan  
 
+[Astro]: https://img.shields.io/badge/Astro-0C1222?style=for-the-badge&logo=astro&logoColor=FDFDFE
+[Astro-url]: https://astro.build/
 [Figma]: https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white
 [Figma-url]: https://figma.com
 [Firebase]: https://img.shields.io/badge/firebase-%23039BE5.svg?style=for-the-badge&logo=firebase
