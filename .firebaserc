@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "homepage-editor"
-  }
+    "default": "homepage-editor",
+    "staging": "homepage-editor-staging"
+  },
+  "targets": {},
+  "etags": {}
 }
