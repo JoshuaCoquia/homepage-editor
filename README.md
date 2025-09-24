@@ -11,6 +11,17 @@
 [![Firebase][Firebase]][Firebase-url]
 [![NPM][NPM]][NPM-url]
 
+## Feature Roadmap
+
+- [ ] Create, Read, Update, Delete Widgets
+- [ ] Save Widgets to localStorage
+- [ ] Create Multiple Types of Widgets
+  - [ ] Weather
+  - [ ] To-Do List
+  - [ ] Calendar
+- [ ] Enable Users to Signup/Login
+- [ ] Save User's Dashboards to Cloud Firestore on Firebase
+
 ## 🚀 Project Structure
 
 Inside of your Astro project, you'll see the following folders and files:
