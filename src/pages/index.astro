@@ -1,8 +1,15 @@
 ---
-import Layout from '../layouts/BaseLayout.astro';
-import { Responsive, WidthProvider } from 'react-grid-layout';
+import Layout from "../layouts/BaseLayout.astro";
+import App from "../components/App.astro";
+
+const widgets = [
+	{ id: "1", title: "Weather App", description: "Access weather API here." },
+	{ id: "2", title: "To-Do List", description: "To-Do items go here." },
+	{ id: "3", title: "Sticky Note", description: "User-generated text here." }
+];
 ---
 
 <Layout>
 	<h1>Homepage Editor</h1>
+	<App widgets={widgets}/>
 </Layout>

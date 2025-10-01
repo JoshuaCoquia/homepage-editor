@@ -1,0 +1,18 @@
+---
+interface Widget {
+    id: string; 
+    title: string;
+    description: string;
+
+}
+interface Props {
+  widgets?: Widget[];
+}
+const { widgets } = Astro.props;
+---
+<ul>
+    {widgets?.map(widget => <li>
+        <h2>{widget.title}</h2>
+        <p>{widget.description}</p>
+    </li>)}
+</ul>
