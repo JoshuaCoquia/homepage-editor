@@ -3,13 +3,13 @@ import Layout from "../layouts/BaseLayout.astro";
 import App from "../components/App.tsx";
 
 const widgets = [
-	{ id: "1", title: "Weather App", description: "Access weather API here." },
-	{ id: "2", title: "To-Do List", description: "To-Do items go here." },
-	{ id: "3", title: "Sticky Note", description: "User-generated text here." }
+	{ id: (Math.random() * 1000000).toFixed(0), title: "Weather App", description: "Access weather API here." },
+	{ id: (Math.random() * 1000000).toFixed(0), title: "To-Do List", description: "To-Do items go here." },
+	{ id: (Math.random() * 1000000).toFixed(0), title: "Sticky Note", description: "User-generated text here." }
 ];
 ---
 
 <Layout>
 	<h1>Homepage Editor</h1>
-	<App widgets={widgets}/>
+	<App widgets={widgets} client:load />
 </Layout>
