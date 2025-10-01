@@ -13,13 +13,18 @@
 
 ## Feature Roadmap
 
-- [ ] Create, Read, Update, Delete Widgets
-- [ ] Save Widgets to localStorage
+- [ ] Create, Read, Update, and Delete Widgets
 - [ ] Create Multiple Types of Widgets
   - [ ] Weather
   - [ ] To-Do List
+    - [ ] Integrate with External To-Do List Software
   - [ ] Calendar
-- [ ] Enable Users to Signup/Login
+    - [ ] Integrate with Google Calendar
+  - [ ] "Sticky Note" (Textbox)
+    - [ ] Allow Markdown Formatting
+- [ ] Format Widgets in Responsive Grid
+- [ ] Save Widgets to localStorage
+- [ ] Enable Users to Signup/Login using Google Account
 - [ ] Save User's Dashboards to Cloud Firestore on Firebase
 
 ## 🚀 Project Structure
