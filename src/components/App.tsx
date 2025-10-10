@@ -1,9 +1,11 @@
 import { useState } from "react";
+import StickyNote from "./widgets/stickynote.tsx";
+
 interface Widget {
     id: string;
     title: string;
     description: string;
-
+    type: string;
 }
 
 interface Props {
@@ -17,7 +19,8 @@ export default function App({ widgets = [] }: Props) {
         const newWidget: Widget = {
             id: (Math.random() * 1000000).toFixed(0),
             title,
-            description
+            description,
+            type: "stickynote",
         };
         setWidgetList([...widgetList!, newWidget]);
     }
@@ -27,6 +30,14 @@ export default function App({ widgets = [] }: Props) {
         <ul>
             {widgetList?.map(widget => <li key={widget.id}>
                 <h2>{widget.title}</h2>
+                {widget.type === "stickynote" && (
+                    <StickyNote
+                        id={widget.id}
+                        title={widget.title}
+                        description={widget.description}
+                        initialContent=""
+                    />
+                )}
                 <small>ID: {widget.id}</small>
                 <br />
                 <button onClick={() => setWidgetList(widgetList.filter(w => w.id !== widget.id))}>Remove</button>
