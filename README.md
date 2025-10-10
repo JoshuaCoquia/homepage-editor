@@ -20,8 +20,10 @@
     - [ ] Integrate with External To-Do List Software
   - [ ] Calendar
     - [ ] Integrate with Google Calendar
-  - [ ] "Sticky Note" (Textbox)
+  - [x] "Sticky Note" (Textbox)
     - [ ] Allow Markdown Formatting
+  - [ ] Timer
+    - [ ] Send Notification to User when Timer Finishes
 - [ ] Format Widgets in Responsive Grid
 - [ ] Save Widgets to localStorage
 - [ ] Enable Users to Signup/Login using Google Account
