@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Weather App Widget</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <script type="text/javascript" src="script.js"></script>
+  </head>
+
+  <body>
+    <div class="weather_widget">
+      <!-- Search bar -->
+      <div class="search_bar">
+        <input 
+          type="text" 
+          class="search_input" 
+          placeholder="Search City" 
+          spellcheck="false" 
+        />
+        <button class="search_button">
+          <img src="public\weather_widget_pngs\search.png" alt="Search" />
+        </button>
+      </div>
+      
+      <!-- Weather content -->
+      <div class="weather">
+        <img src="public\weather_widget_pngs\clear.png" class="weather_icon" alt="Weather Icon" />
+        <p class="weather_desc">Cloudy</p>
+
+        <!-- API hook: temperature -->
+        <h1 class="temperature">30°f</h1>
+
+        <!-- API hook: city -->
+        <h2 class="city">Merced</h2>
+
+        <!-- Details row -->
+        <div class="details">
+          <!-- API hook: humidity -->
+          <div class="col humidity_col">
+            <img src="public\weather_widget_pngs\humidity.png" alt="Humidity" />
+            <div class="humidity_info">
+              <p class="humidity_value">10%</p>
+              <p class="humidity_label">Humidity</p>
+            </div>
+          </div>
+
+          <!-- API hook: wind -->
+          <div class="col wind_col">
+            <img src="public\weather_widget_pngs\wind.png" alt="Wind Speed" />
+            <div class="wind_info">
+              <p class="wind_value">10 mi/hr</p>
+              <p class="wind_label">Wind Speed</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+        const apiKey = "YOUR_API_KEY";//go to openweathermap.org to get free key
+        const apiUrl = "https://api.openweathermap.org/data/2.5/weather?&units=imperial";
+
+        const searchBox = document.querySelector(".search_input")
+        const searchButton = document.querySelector(".search_button")
+        const weatherIcon = document.querySelector(".weather_icon")
+        const weatherDesc = document.querySelector(".weather_desc")
+
+        const widget = document.querySelector(".weather_widget");
+
+        //the function that does the API request and updates information
+        async function checkWeather(city){
+            const response = await fetch(apiUrl + "&q=" +city +"&appid=" + apiKey);
+            var data = await response.json();
+
+            console.log(data);
+            document.querySelector(".temperature").innerHTML = Math.round(data.main.temp)+"°F";
+            document.querySelector(".city").innerHTML = data.name;
+            document.querySelector(".humidity_value").innerHTML = data.main.humidity+"%";
+            document.querySelector(".wind_value").innerHTML = data.wind.speed+"mi/hr";
+            document.querySelector(".weather_desc").innerHTML = data.weather[0].main;
+
+            switch(data.weather[0].main){
+                case "Clear":
+                    weatherIcon.src = "public\weather_widget_pngs\clear.png";
+                    break;
+                case "Clouds":
+                    weatherIcon.src = "public\weather_widget_pngs\clouds.png";
+                    break;
+                case "Drizzle":
+                    weatherIcon.src = "public\weather_widget_pngs\drizzle.png";
+                    break;
+                case "Mist":
+                    weatherIcon.src = "public\weather_widget_pngs\mist.png";
+                    break;
+                case "Rain":
+                    weatherIcon.src = "public\weather_widget_pngs\rain.png";
+                    break;
+                case "Snow":
+                    weatherIcon.src = "public\weather_widget_pngs\snow.png";
+                    break;
+                default:
+                    weatherIcon.src = "public\weather_widget_pngs\clear.png";
+                    break;
+            }
+            
+            //for day,night,sunrise,sunset checker to change background
+            let timeOfDay = "day"; //based on this var, will change the styles stylesheet
+            
+            const dt = data.dt;
+            const sunrise = data.sys.sunrise;
+            const sunset = data.sys.sunset;
+            const timeZoneOffset = data.timezone;
+
+            const localTime = dt + timeZoneOffset;
+            const localSunrise = sunrise + timeZoneOffset;
+            const localSunset = sunset + timeZoneOffset;
+
+            const margin = 600; //10 minutes for sunset and sunrise times
+            //Calculations for timeOfDay
+            if (Math.abs(localTime-localSunrise) <= margin) {
+                timeOfDay = "sunrise";
+            } else if (Math.abs(localTime-localSunset) <= margin) {
+                timeOfDay = "sunset";
+            } else if (localTime > localSunrise+margin && localTime < localSunset-margin) {
+                timeOfDay = "day";
+            } else {
+                timeOfDay = "night";
+            }
+
+            //Following code is to change background gradient based on timeOfDay
+            if (timeOfDay === "day") {
+                widget.style.background = "linear-gradient(135deg, #c7fbf6 0%, #2bd6c1 100%)";
+            } else if (timeOfDay === "night") {
+                widget.style.background = "linear-gradient(135deg, #1b1f3a 0%, #3a3d6c 100%)";
+            } else if (timeOfDay === "sunrise") {
+                widget.style.background = "linear-gradient(135deg, #ffd194 0%, #d1913c 100%)";
+            } else if (timeOfDay === "sunset") {
+                widget.style.background = "linear-gradient(135deg, #f6d365 0%, #fda085 100%)";
+            }
+        }
+        checkWeather("New York");
+
+        //Search Button functionallity and can click Enter
+        searchButton.addEventListener("click", ()=>{
+            checkWeather(searchBox.value);
+        })
+        searchBox.addEventListener("keypress", (event)=>{
+            if (event.key === "Enter") {
+                checkWeather(searchBox.value);
+            }
+        })
+    </script>
+  </body>
+</html>
