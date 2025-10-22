@@ -1,6 +1,5 @@
 import { useState } from "react";
 import StickyNote from "./widgets/stickynote.tsx";
-
 interface Widget {
     id: string;
     title: string;
@@ -29,7 +28,6 @@ export default function App({ widgets = [] }: Props) {
         <button onClick={() => addWidget("New Widget", "New Widget")}>Add Widget</button>
         <ul>
             {widgetList?.map(widget => <li key={widget.id}>
-                <h2>{widget.title}</h2>
                 {widget.type === "stickynote" && (
                     <StickyNote
                         id={widget.id}

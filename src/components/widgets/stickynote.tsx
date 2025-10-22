@@ -12,6 +12,7 @@ export default function StickyNote({ id, title, description, initialContent = ""
 
     return (
         <section className="sticky-note">
+            <h2>{title}</h2>
             <textarea
                 value={content}
                 onChange={(e) => setContent(e.target.value)}
