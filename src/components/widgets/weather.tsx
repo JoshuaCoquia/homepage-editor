@@ -11,6 +11,9 @@ interface Props {
     city: string;
 }
 
+// hope this doesn't come back to bite me
+const UNSAFE_PUBLIC_OPENWEATHER_API_KEY = "79f9c861b45d73732ee6715fa3b5c41a";
+
 export default function Weather({ id, title, description, city = "" }: Props) {
     const [location, setLocation] = useState(city);
     const [temperature, setTemperature] = useState(0);
@@ -25,7 +28,7 @@ export default function Weather({ id, title, description, city = "" }: Props) {
     }
 
     function updateWeatherInformation() {
-        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${searchQuery}&appid=${import.meta.env.PUBLIC_OPEN_WEATHER_API_KEY}`).then(data => data.json()).then(data => {
+        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${searchQuery}&appid=${UNSAFE_PUBLIC_OPENWEATHER_API_KEY}`).then(data => data.json()).then(data => {
             setLocation(data.name);
             setTemperature(Math.round(data.main.temp));
             setHumidity(data.main.humidity);
