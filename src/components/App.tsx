@@ -1,5 +1,7 @@
 import { useState } from "react";
 import StickyNote from "./widgets/stickynote.tsx";
+import Weather from "./widgets/weather.tsx";
+
 interface Widget {
     id: string;
     title: string;
@@ -34,6 +36,14 @@ export default function App({ widgets = [] }: Props) {
                         title={widget.title}
                         description={widget.description}
                         initialContent=""
+                    />
+                )}
+                {widget.type === "weather" && (
+                    <Weather
+                        id={widget.id}
+                        title={widget.title}
+                        description={widget.description}
+                        city="Merced"
                     />
                 )}
                 <small>ID: {widget.id}</small>
